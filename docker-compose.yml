@@ -1,0 +1,40 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: backend
+    depends_on:
+      - db
+    restart: unless-stopped
+    env_file: ./server/.env
+    volumes:
+      - ./server:/frontend
+      - ./node_modules
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=db
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
+    ports:
+      - "9000:9000"
+
+    #command: ./wait-for.sh db:27017 -- /home/node/app/node_modules/.bin/nodemon app.js
+
+  db:
+    container_name: db
+    image: mongo:4.0
+    restart: always
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./paperclick
+    volumes:
+      - ./paperclick:/frontend
+      - ./node_modules
+    ports:
+      - "8080:8080"
