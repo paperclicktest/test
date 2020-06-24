@@ -18,11 +18,21 @@
   },
   "homepage": "https://github.com/paperclick/test#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap-icons": "^1.0.0-alpha4",
+    "btoa": "^1.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "hapi": "^18.1.0",
+    "hapi-auth-jwt": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.19",
+    "node-fetch": "^2.6.0",
     "nodemon": "^2.0.4",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1"
   }
 }
