@@ -16,12 +16,16 @@ const options = {
 };
 
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-
-mongoose
-  .connect(url, options)
-  .then(function () {
-    console.log("MongoDB is connected");
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
+//const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
+const connectWithRetry = () => {
+  mongoose
+    .connect(url, options)
+    .then(function () {
+      console.log("MongoDB is connected");
+    })
+    .catch(function (err) {
+      console.log("errorr: " + err);
+      setTimeout(connectWithRetry, 5000);
+    });
+};
+connectWithRetry();

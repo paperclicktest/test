@@ -51,6 +51,19 @@ const init = async () => {
       return accessToken;
     },
   });
+  server.route({
+    config: {
+      cors: {
+        origin: ["*"],
+        additionalHeaders: ["cache-control", "x-requested-with"],
+      },
+    },
+    method: "GET",
+    path: "/",
+    handler: (req, rep) => {
+      return "SERVER OK";
+    },
+  });
   //Gets the repos for the specific user with authentication
   server.route({
     method: "POST",

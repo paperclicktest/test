@@ -10,7 +10,7 @@ module.exports = {
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
     proxyTable: {
-      "/api": "http://localhost:9000",
+      "/api": "http://0.0.0.0:9000",
       changeOrigin: true,
     },
 
