@@ -23,10 +23,12 @@ services:
     image: mongo
     restart: always
     user: root
+    env_file:
+      - ./server/.env
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=paperclicks
-      - MONGO_INITDB_DATABASE=paperclicks
-      - MONGO_INITDB_ROOT_PASSWORD=paperclickspssw
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_DATABASE=${MONGO_DB}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     expose:
       - "27017"
     ports:
