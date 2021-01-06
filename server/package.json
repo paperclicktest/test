@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/paperclick/test#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap-icons": "^1.0.0-alpha4",
     "btoa": "^1.2.1",
     "cors": "^2.8.5",
