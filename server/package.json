@@ -27,7 +27,7 @@
     "hapi-auth-jwt": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.19",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "nodemon": "^2.0.4",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4"
